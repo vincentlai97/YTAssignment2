@@ -4,6 +4,8 @@
  */
 package assignment2;
 
+import java.time.format.DateTimeParseException;
+
 /**
  *
  * @author YT
@@ -11,7 +13,8 @@ package assignment2;
 public class Student_Course extends Student {
     private Unit_Course unit;
 
-    public Student_Course(String firstName, String lastName, long studentNumber, String dateOfBirth, Unit_Course unit) {
+    public Student_Course(String firstName, String lastName, long studentNumber, String dateOfBirth, Unit_Course unit)
+            throws DateTimeParseException {
         super(firstName, lastName, studentNumber, dateOfBirth);
         this.unit = unit;
     }
@@ -24,7 +27,7 @@ public class Student_Course extends Student {
         System.out.println("Student Number: " + getStudentNumber());
         System.out.println(" Date of Birth: " + getDateOfBirth());
         System.out.println("       Unit ID: " + unit.getId());
-        System.out.println("  Overall Mark: " + unit.getOverallMark());
+        System.out.println(String.format("  Overall Mark: %.2f", unit.getOverallMark()));
         System.out.println("   Final Grade: " + unit.getFinalGrade());
     }
 }

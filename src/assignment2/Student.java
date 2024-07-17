@@ -26,7 +26,8 @@ public class Student {
         this.dateOfBirth = null;
     }
 
-    public Student(String firstName, String lastName, long studentNumber, String dateOfBirth) {
+    public Student(String firstName, String lastName, long studentNumber, String dateOfBirth)
+            throws DateTimeParseException {
         this.firstName = firstName;
         this.lastName = lastName;
         this.studentNumber = studentNumber;
@@ -61,13 +62,9 @@ public class Student {
         return dateOfBirth.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) throws DateTimeParseException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        try {
-            this.dateOfBirth = LocalDate.parse(dateOfBirth, formatter);
-        } catch (DateTimeParseException e) {
-            System.out.println("Invalid date of birth format. Please use dd/MM/yyyy.");
-        }
+        this.dateOfBirth = LocalDate.parse(dateOfBirth, formatter);
     }
 
     public void reportGrade() {
