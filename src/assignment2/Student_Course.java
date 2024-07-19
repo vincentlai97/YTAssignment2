@@ -30,4 +30,8 @@ public class Student_Course extends Student {
         System.out.println(String.format("  Overall Mark: %.2f", unit.getOverallMark()));
         System.out.println("   Final Grade: " + unit.getFinalGrade());
     }
+
+    public Unit_Course getUnit() {
+        return unit;
+    }
 }
